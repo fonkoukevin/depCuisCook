@@ -152,6 +152,7 @@
       <path value="$PROJECT_DIR$/vendor/jzonta/faker-restaurant" />
       <path value="$PROJECT_DIR$/vendor/symfony/ux-autocomplete" />
       <path value="$PROJECT_DIR$/vendor/symfony/ux-toggle-password" />
+      <path value="$PROJECT_DIR$/vendor/symfony/apache-pack" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="8.2" />

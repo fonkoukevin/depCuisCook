@@ -145,6 +145,7 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/jzonta/faker-restaurant" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/ux-autocomplete" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/ux-toggle-password" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/apache-pack" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

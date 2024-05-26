@@ -1,0 +1,46 @@
+{% extends 'admin/admin.html.twig' %}
+
+{% block title %}Recette - {{ recipe.titre }}{% endblock %}
+
+{% block body %}
+    <div class="container mt-4">
+        <div class="row">
+
+            <div class="col-12">
+                <h1>{{ recipe.titre }}</h1>
+                <div class="thumbnail mb-4">
+                    {#                    {% if recipe.thumbnailFile %}#}
+                    <p>
+                        <img src="{{ vich_uploader_asset(recipe, 'thumbnailFile') }}" width="100px" alt="">
+                    </p>
+
+                    {#                    {% endif %}#}
+
+                </div>
+                <p>Catégorie: {{ recipe.category.name }}</p>
+                <p>Durée: {{ recipe.duration }} minutes</p>
+
+
+                <div class="content">
+                    <h2>Description</h2>
+                    <p>{{ recipe.content | nl2br }}</p>
+                </div>
+                <div class="ingredients">
+                    <h2>Ingrédients</h2>
+                    <ul>
+                        {% for quantity in recipe.quantities %}
+                            <li>{{ quantity.quantity }} {{ quantity.unit }} de {{ quantity.ingredient.name }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div class="actions mt-4">
+                    <a href="{{ path('admin.recipe.edit', {id: recipe.id}) }}" class="btn btn-primary">Éditer</a>
+                    <form action="{{ path('admin.recipe.delete', {id: recipe.id}) }}" method="post" style="display: inline-block;">
+                        <input type="hidden" name="_method" value="DELETE">
+                        <button type="submit" class="btn btn-danger">Supprimer</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

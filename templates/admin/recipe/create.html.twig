@@ -1,0 +1,16 @@
+{% extends 'admin/admin.html.twig' %}
+
+{% block title "creer une nouvelle recette"%}
+
+
+
+{% block body  %}
+
+    <h1> Creer une nouvelle recette</h1>
+
+    {#    bon donc on a form qui est une fonction de symfony qui nous permet de gerer le formulaie et nous donner le code html et l'autre form passer en paramettre c'est ma variable form passer depuis mon recippecontroller#}
+    {{ form(form) }}
+    {#    {{ form.row(form.titre) }}#}
+{% endblock %}
+
+

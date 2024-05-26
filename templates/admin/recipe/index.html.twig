@@ -1,0 +1,280 @@
+{# {% extends 'admin/admin.html.twig' %} #}
+
+{# {% block title "Toutes les recettes" %} #}
+
+
+
+{# {% block body %} #}
+{#    <p> #}
+
+{#    </p> #}
+{#    <p> #}
+{#        <a href="{{ path("admin.recipe.create") }}"> creer une recette </a> #}
+
+{#    </p> #}
+
+{#    #}{#        {{ dump(app) }} #}
+
+{#    <table class="table"> #}
+{#        <thead> #}
+{#        <tr> #}
+{#            <th>{{ knp_pagination_sortable(recipes, 'ID', 'r.id') }}</th> #}
+{#            <th>{{ knp_pagination_sortable(recipes, 'Titre', 'r.titre') }}</th> #}
+
+{#            <th>Titre</th> #}
+{#            <th>Categorie</th> #}
+{#            <th style="width: 200px">Actions</th> #}
+{#        </tr> #}
+{#        </thead> #}
+{#        <tbody> #}
+{#        {% for recipe in recipes %} #}
+{#            <tr id="row_recipe_{{ recipe.id }}"> #}
+{#                <td>{{ recipe.id }}</td> #}
+{#                <td> #}
+{#                    <a href="{{ path("recipe.show",{id:recipe.id, slug:recipe.slug}) }}"> {{ recipe.titre }} </a> #}
+{#                   <turbo-frame id="recipe_{{ recipe.id }}"> #}
+{#                    <a href="{{ path("admin.recipe.edit",{id:recipe.id}) }}"> {{ recipe.titre }} </a> #}
+{#                   </turbo-frame> #}
+{#                </td> #}
+{#                <td>{{ recipe.category.name | default('') }}</td> #}
+{#                <td> #}
+{#                    <div class="d-flex gap-1"> #}
+{#                        <a class="btn btn-primary btn-sm" href="{{ path("admin.recipe.edit", {id: recipe.id}) }}"> Editer</a> #}
+
+{#                        <form action="{{ path('admin.recipe.delete', {id: recipe.id}) }}" method="post"> #}
+{#                            <input type="hidden" name="_method" value="DELETE"> #}
+{#                            <button type="submit" class="btn btn-danger btn-sm">supprimer</button> #}
+{#                        </form> #}
+{#                    </div> #}
+{#                </td> #}
+{#            </tr> #}
+{#        {% endfor %} #}
+{#        </tbody> #}
+{#    </table> #}
+
+
+
+{#    <div class="d-flex"> #}
+{#        {% if page > 1 %} #}
+{#        <a href="{{ path('admin.recipe.index', {page: page -1}) }}" class="btn btn-secondary"> Page precedente</a> #}
+{#        {% endif %} #}
+
+{#        {% if page < maxPage %} #}
+{#            <a href="{{ path('admin.recipe.index', {page: page +1}) }}" class="btn btn-secondary"> Page suivante</a> #}
+{#        {% endif %} #}
+{#    </div> #}
+
+{# {{ knp_pagination_render(recipes) }} #}
+
+
+
+
+{# {% endblock %} #}
+
+
+
+{# templates/admin/recipe/index.html.twig #}
+
+
+
+{# {% extends 'admin/admin.html.twig' %} #}
+
+{# {% block title "Toutes les recettes" %} #}
+
+{# {% block body %} #}
+
+
+
+
+{#    <div class="box"> #}
+
+{#        <i class="fa fa-search" aria-hidden="true"></i> #}
+
+{#        <input type="text" id="search" placeholder="Rechercher une recette..." value="{{ searchTerm }}"> #}
+
+{#    </div> #}
+
+
+
+{#    <p><a href="{{ path('admin.recipe.create') }}">Créer une recette</a></p> #}
+
+{#    <table class="table"> #}
+{#        <thead> #}
+{#        <tr> #}
+{#            <th>{{ knp_pagination_sortable(recipes, 'ID', 'r.id') }}</th> #}
+{#            <th>{{ knp_pagination_sortable(recipes, 'Titre', 'r.titre') }}</th> #}
+{#            <th>Catégorie</th> #}
+{#            <th style="width: 200px">Actions</th> #}
+{#        </tr> #}
+{#        </thead> #}
+{#        <tbody id="recipe-list"> #}
+{#        {% for recipe in recipes %} #}
+{#            <tr id="row_recipe_{{ recipe.id }}"> #}
+{#                <td>{{ recipe.id }}</td> #}
+{#                <td> #}
+{#                    <a href="{{ path('admin.recipe.edit', {id: recipe.id}) }}">{{ recipe.titre }}ccv</a> #}
+{#                </td> #}
+{#                <td>{{ recipe.category.name | default('') }}</td> #}
+{#                <td> #}
+{#                    <div class="d-flex gap-1"> #}
+{#                        <a class="btn btn-primary btn-sm" href="{{ path('admin.recipe.edit', {id: recipe.id}) }}">Éditer</a> #}
+{#                        <form action="{{ path('admin.recipe.delete', {id: recipe.id}) }}" method="post"> #}
+{#                            <input type="hidden" name="_method" value="DELETE"> #}
+{#                            <button type="submit" class="btn btn-danger btn-sm">Supprimer</button> #}
+{#                        </form> #}
+{#                    </div> #}
+{#                </td> #}
+{#            </tr> #}
+{#        {% endfor %} #}
+{#        </tbody> #}
+{#    </table> #}
+
+{#    {{ knp_pagination_render(recipes) }} #}
+
+{#    <script> #}
+{#        document.getElementById('search').addEventListener('input', function() { #}
+{#            const search = this.value; #}
+{#            const url = new URL(window.location.href); #}
+{#            url.searchParams.set('search', search); #}
+{#            fetch(url, { #}
+{#                headers: { #}
+{#                    'X-Requested-With': 'XMLHttpRequest' #}
+{#                } #}
+{#            }) #}
+{#                .then(response => response.text()) #}
+{#                .then(html => { #}
+{#                    const parser = new DOMParser(); #}
+{#                    const doc = parser.parseFromString(html, 'text/html'); #}
+{#                    const recipeList = doc.getElementById('recipe-list'); #}
+{#                    document.getElementById('recipe-list').innerHTML = recipeList.innerHTML; #}
+{#                }); #}
+{#        }); #}
+{#    </script> #}
+{# {% endblock %} #}
+
+{% extends 'admin/admin.html.twig' %}
+
+{% block title "Toutes les recettes" %}
+
+{% block body %}
+
+
+
+
+
+    <div class="row">
+        <div class="col-6">
+            <a href="{{ path('admin.recipe.create') }}" class="btn btn-primary"
+               style="background-color: #2f5b74; border: solid #2f5b74 ">Ajouter une recette</a>
+
+        </div>
+        <div class="col-6">
+            <div class="box ff">
+                <i class="fa fa-search" aria-hidden="true"></i>
+                <input type="text" id="search" placeholder="Rechercher une recette..." value="{{ searchTerm }}">
+            </div>
+        </div>
+
+    </div>
+
+    <style>
+        .recipe-card:hover .card-img-top {
+            filter: brightness(65%); /* Rendre l'image plus sombre au survol */
+
+        }
+
+        .bb {
+            margin-bottom: 10px;
+            margin-left: 10px;
+            margin-right: 85px;
+        }
+
+        .action-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+
+        .ff {
+            margin-left: 200px;
+            margin-bottom: 65px;
+        }
+
+        /*a {*/
+        /*    text-decoration: none;*/
+        /*}*/
+    </style>
+
+    <div id="recipe-list" class="row">
+        {% for recipe in recipes %}
+
+            {#        <a href="{{ path("admin.recipe.show",{id:recipe.id, slug:recipe.slug}) }}"> #}
+            <div class="col-md-3 col-sm-6 bb"> <!-- Redimensionner les cartes -->
+                <div class="card recipe-card border-0 " style="height: 400px" data-recipe-id="{{ recipe.id }}">
+                    <a href="{{ path("admin.recipe.show",{id:recipe.id, slug:recipe.slug}) }}">
+
+                        <img src="{{ vich_uploader_asset(recipe, 'thumbnailFile') }}" class="card-img-top"
+                             alt="{{ recipe.titre }}">
+                    </a>
+
+                        <div class="card-body">
+                            <h5 class="card-title" style="text-decoration: none;">{{ recipe.titre }}</h5>
+                            <p class="card-text category-text" style="text-decoration: none;">
+                                Catégorie: {{ recipe.category.name | default('') }}</p>
+                            <div class="actions" style="display: none;">
+                                <div class="action-buttons">
+                                    <a href="{{ path('admin.recipe.edit', {id: recipe.id}) }}" class="btn btn-primary"
+                                       style="background-color: #2c2c2c; border: solid #2c2c2c; border-radius: 20px">Éditer</a>
+                                    <form action="{{ path('admin.recipe.delete', {id: recipe.id}) }}" method="post">
+                                        <input type="hidden" name="_method" value="DELETE">
+                                        <button type="submit" class="btn btn-danger"
+                                                style="background-color: #d55f5f; border: solid #d55f5f; border-radius: 20px">
+                                            Supprimer
+                                        </button>
+                                    </form>
+
+                                </div>
+                            </div>
+                        </div>
+
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+    {{ knp_pagination_render(recipes) }}
+
+    <script>
+        function addHoverListeners() {
+            document.querySelectorAll('.recipe-card').forEach(card => {
+                card.addEventListener('mouseover', () => {
+                    card.querySelector('.actions').style.display = 'block';
+                });
+                card.addEventListener('mouseleave', () => {
+                    card.querySelector('.actions').style.display = 'none';
+                });
+            });
+        }
+
+        addHoverListeners();
+
+        document.getElementById('search').addEventListener('input', function () {
+            const search = this.value;
+            const url = new URL(window.location.href);
+            url.searchParams.set('search', search);
+            fetch(url, {
+                headers: {
+                    'X-Requested-With': 'XMLHttpRequest'
+                }
+            })
+                .then(response => response.text())
+                .then(html => {
+                    const parser = new DOMParser();
+                    const doc = parser.parseFromString(html, 'text/html');
+                    const recipeList = doc.getElementById('recipe-list');
+                    document.getElementById('recipe-list').innerHTML = recipeList.innerHTML;
+                    addHoverListeners(); // Réinitialiser les écouteurs d'événements
+                });
+        });
+    </script>
+{% endblock %}

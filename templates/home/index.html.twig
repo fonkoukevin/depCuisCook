@@ -1,0 +1,72 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HomeController!{% endblock %}
+
+{% block body %}
+    <style>
+        .text {
+            padding-top: 120px;
+            padding-right: 170px;
+        }
+    </style>
+    <section class="container-fluid">
+        <div class="container-fluid mb-5 ">
+            <div class="row">
+                <div class="card mb-3 border-0">
+                    <div class="row g-0">
+
+                        <div class="col-md-6 me-5 my-5 d-flex justify-content-center text">
+                            <div class="card-body justify-content-center py-6 ms-4">
+                                <h4 class="card-title"></h4>
+                                <p class="card-text">Découvrez et partagez des recettes qui racontent une histoire.
+                                    Rejoignez notre communauté de passionnés pour transformer chaque repas en une
+                                    expérience unique.</p>
+                                <button type="submit" class="btn btn-success" style="background: #2f5b74"><a
+                                            class="nav-link {{ app.current_route starts with "admin.recipe." ? 'active': '' }} btn btn-primary"
+                                            href="{{ path("admin.recipe.index") }}" style="background: none">Voir plus </a>
+                                </button>
+                                <p class="card-text"><small class="text-body-secondary">-------- Partagez la passion,
+                                        savourez l'exception. ------</small>
+                                </p>
+
+                            </div>
+                        </div>
+                        <div class="col-5 me-5 my-4 ">
+                            <img src="{{ asset('media/cuiscook.jpg') }}" style="width: 470px; height: 430px;"
+                                 class="img-fluid rounded-0 imgarrange" alt="logo">
+
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- <div class="container-fluid mb-5">
+                <div class="row">
+                    <div class="col-md-6 me-5 mb-3">
+                        <div class="card border-0 h-100">
+                            <div class="card-body py-6 ms-4">
+                                <h4 class="card-title">FMk-store</h4>
+                                <p class="card-text">Découvrez un univers de style sans limites où la mode rencontre
+                                    l'individualité. Parcourez nos collections variées de vêtements, chaussures et
+                                    accessoires pour trouver votre expression unique de la tendance, créant ainsi un
+                                    style qui vous appartient et vous distingue.</p>
+                                <button type="submit" class="btn btn-success">Voir plus</button>
+                                <p class="card-text"><small class="text-body-secondary">-------- Votre style, notre
+                                        passion.------</small>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <img src="/Pictures/Black And White Modern Brush Font Logo.png"
+                            class="img-fluid rounded-0 imgarrange" alt="logo">
+                    </div>
+                </div>
+            </div>
+             -->
+        </div>
+    </section>
+{% endblock %}

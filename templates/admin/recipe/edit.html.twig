@@ -1,0 +1,28 @@
+{% extends 'admin/admin.html.twig' %}
+
+
+{% block title  "Recette: " ~ recipe.titre%}
+
+
+{#{% if is_granted('ROLE_ADMIN') %}#}
+
+{% block body  %}
+
+    <h1> {{ recipe.titre }}</h1>
+
+{#    <p>#}
+{#        <img src="/recettes/images/{{ recipe.thumbmail }}" alt="">#}
+{#    </p>#}
+
+        <p>
+            <img src="{{ vich_uploader_asset(recipe, 'thumbnailFile') }}" alt="">
+        </p>
+
+{#    <turbo-frame id="recipe_{{ recipe.id }}">#}
+
+{#    bon donc on a form qui est une fonction de symfony qui nous permet de gerer le formulaie et nous donner le code html et l'autre form passer en paramettre c'est ma variable form passer depuis mon recippecontroller#}
+    {{ form(form) }}
+{#    </turbo-frame>#}
+{#    {{ form.row(form.titre) }}#}
+{% endblock %}
+
